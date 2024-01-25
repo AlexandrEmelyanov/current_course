@@ -19,8 +19,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'django_extensions',
+
+    'currency',
 ]
 
 MIDDLEWARE = [
@@ -99,3 +100,4 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 API_KEY = 'WMuDg7lUUgFo2KO2fyYJDTK7TY3lvOybre05dKra'
+API_URL = 'https://api.currencyapi.com/v3/latest'
