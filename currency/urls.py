@@ -5,5 +5,5 @@ from .views import get_current_usd
 app_name = 'currency'
 
 urlpatterns = [
-    path('', get_current_usd),
+    path('', get_current_usd, name='current_usd'),
 ]

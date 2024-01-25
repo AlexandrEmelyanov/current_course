@@ -1,5 +1,7 @@
 import os
+from datetime import timedelta
 from pathlib import Path
+
 from dotenv import load_dotenv
 
 load_dotenv('.env')
@@ -108,3 +110,11 @@ REDIS_PORT = os.getenv('REDIS_PORT')
 
 CELERY_BROKER_URL = f'redis://{REDIS_HOST}:{REDIS_PORT}'
 CELERY_RESULT_BACKEND = f'redis://{REDIS_HOST}:{REDIS_PORT}'
+
+# Sending a request every 15 seconds
+CELERY_BEAT_SCHEDULE = {
+    'get_current_rate': {
+        'task': 'currency.tasks.get_current_rate',
+        'schedule': timedelta(seconds=15),
+    },
+}
