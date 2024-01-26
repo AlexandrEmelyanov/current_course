@@ -118,3 +118,30 @@ CELERY_BEAT_SCHEDULE = {
         'schedule': timedelta(seconds=15),
     },
 }
+
+# Logging configuration
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'file': {
+            'format': '%(asctime)s | %(name)-2s | %(levelname)-2s | %(message)s'
+        }
+    },
+    'handlers': {
+        'file': {
+            'class': 'logging.FileHandler',
+            'level': 'INFO',
+            'formatter': 'file',
+            'filename': 'log.log',
+            'mode': 'a',
+            'encoding': 'UTF-8',
+        }
+    },
+    'loggers': {
+        'currency': {
+            'level': 'INFO',
+            'handlers': ['file'],
+        },
+    },
+}
